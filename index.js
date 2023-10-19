@@ -30,6 +30,21 @@ function createEmployeeRecords(rows) {
     };
   }
 
+  function createTimeInEvent(employeeRecord, dateTimeString) {
+    const [date, hour] = dateTimeString.split(' ');
+    employeeRecord.timeInEvents.push({type: "TimeIn", date: date, hour: parseInt(hour)});
+    return employeeRecord;
+  }
+  function createTimeOutEvent(employeeRecord, dateTimeString) {
+    const [date, hour] = dateTimeString.split(" ");
+    employeeRecord.timeOutEvents.push({
+      type: "TimeOut",
+      date,
+      hour: parseInt(hour, 10),
+    });
+    return employeeRecord;
+  }
+
 
 
 
