@@ -12,11 +12,24 @@ function createEmployeeRecord(employeeInfo) {
     return employeeRecord;
   }
 
+
+  
 //   Another function
 function createEmployeeRecords(rows) {
     return rows.map(row => createEmployeeRecord(row));
   }
 
-  
+  function createEmployeeRecord(row) {
+    return {
+      firstName: row[0],
+      familyName: row[1],
+      title: row[2],
+      payPerHour: row[3],
+      timeInEvents: [],
+      timeOutEvents: []
+    };
+  }
+
+
 
 
