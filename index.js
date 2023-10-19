@@ -66,6 +66,7 @@ function wagesEarnedOnDate(employeeRecord, date) {
     return wagesEarned;
   }
   
+  
 
 
 
