@@ -66,7 +66,23 @@ function wagesEarnedOnDate(employeeRecord, date) {
     return wagesEarned;
   }
   
+  // Define the allWagesFor function
+  function allWagesFor(employeeRecord) {
+    // Get the dates for which the employee has timeInEvent and timeOutEvent records
+    const datesWorked = employeeRecord.timeInEvents.map(event => event.date);
   
+    // Calculate the total wages earned for each date and add them together
+    const totalWages = datesWorked.reduce((total, date) => {
+      return total + wagesEarnedOnDate(employeeRecord, date);
+    }, 0);
+  
+    return totalWages;
+  }
+  
+  function calculatePayroll(employeeRecords) {
+    let wages = employeeRecords.map(record => allWagesFor(record));
+    return wages.reduce((total, wage) => total + wage, 0);
+  }
 
 
 
