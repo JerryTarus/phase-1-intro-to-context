@@ -46,5 +46,27 @@ function createEmployeeRecords(rows) {
   }
 
 
+  function hoursWorkedOnDate(employeeRecord, date) {
+    const timeIn = employeeRecord.timeInEvents.find((event) => event.date === date);
+    const timeOut = employeeRecord.timeOutEvents.find((event) => event.date === date);
+    const hoursWorked = (timeOut.hour - timeIn.hour) / 100;
+    return hoursWorked;
+  }
+    
+// Define the wagesEarnedOnDate function
+function wagesEarnedOnDate(employeeRecord, date) {
+    // Get the timeInEvent and timeOutEvent for the given date
+    const timeInEvent = employeeRecord.timeInEvents.find(event => event.date === date);
+    const timeOutEvent = employeeRecord.timeOutEvents.find(event => event.date === date);
+  
+    // Calculate the hours worked and multiply by the employee's rate per hour
+    const hoursWorked = (timeOutEvent.hour - timeInEvent.hour) / 100;
+    const wagesEarned = hoursWorked * employeeRecord.payPerHour;
+  
+    return wagesEarned;
+  }
+  
+
+
 
 
